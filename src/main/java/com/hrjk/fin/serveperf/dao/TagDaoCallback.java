@@ -21,9 +21,9 @@ public class TagDaoCallback implements BeforeConvertCallback<Tag>, BeforeSaveCal
 	@Override
 	public Tag onBeforeConvert(Tag tag) {
 		if (tag.getId() == null) {
-			String idd = UUID.randomUUID().toString();
-			logger.debug("set tag id {}", idd);
-			tag.setId(idd);
+			// String idd = UUID.randomUUID().toString();
+			// logger.debug("set tag id {}", idd);
+			// tag.setId(idd);
 		}
 		return tag;
 	}

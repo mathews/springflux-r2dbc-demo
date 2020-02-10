@@ -58,7 +58,7 @@ public class Tag {
 	@Version
 	private int version;
 
-	public Tag withId(String id) {
+	public Tag withId(Integer id) {
 		return new Tag(id, this.name, this.valid, this.createdBy, this.createdAt, this.modifiedBy, this.modifiedAt,
 				this.version);
 	}

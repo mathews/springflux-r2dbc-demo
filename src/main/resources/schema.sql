@@ -1,5 +1,5 @@
-CREATE TABLE `tag`  (
-  `id` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT UUID() COMMENT '主键ID',
+CREATE TABLE IF NOT EXISTS `tag`(
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `name` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '标签名称',
   `valid` int(11) NULL DEFAULT 1 COMMENT '是否可用',
   `created_by` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '记录创建人账号ID',

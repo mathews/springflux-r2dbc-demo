@@ -29,21 +29,23 @@ public class TagsController {
 	public Flux<Tag> getPerson(@PathVariable String id) {
 		return tagDao.findById(id).flux();
 	}
-	
-	@GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Flux<Tag> getPersonInPage(@RequestHeader("X-Page-Start") int start,@RequestHeader("X-Page-Size") int size ) {
-		return tagDao.findInPage(start, size);
-	}
 
 	@PostMapping("/")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Flux<Tag> add(@RequestBody Tag tag) {
 		return tagDao.save(tag).flux();
 	}
-	
+
 	@DeleteMapping("/{id}")	
 	@ResponseStatus(HttpStatus.CREATED)
 	public Flux<Void> delete(@PathVariable String id, @RequestHeader("X-Logged-User") String userId) {
 		return tagDao.deleteLogic(id, userId).flux();
 	}
+	
+	@GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+	public Flux<Tag> getPersonInPage(@RequestHeader("X-Page-Start") int start,@RequestHeader("X-Page-Size") int size ) {
+		return tagDao.findInPage(start, size);
+	}
+	
+	
 }
